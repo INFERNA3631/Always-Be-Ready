@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
         rotateToMouse       = GetComponent<RotateToMouse>();
         movement            = GetComponent<MovementCharacterController>();
         audioSource         = GetComponent<AudioSource>();
+
+        transform.Rotate(0, 0, 180);
     }
 
     // Update is called once per frame
