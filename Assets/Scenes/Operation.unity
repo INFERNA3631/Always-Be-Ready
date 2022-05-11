@@ -318,7 +318,6 @@ GameObject:
   - component: {fileID: 219865740}
   - component: {fileID: 219865742}
   - component: {fileID: 219865743}
-  - component: {fileID: 219865744}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -416,18 +415,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0.1}
---- !u!114 &219865744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 219865735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0716cd5be8ad7e344a46aa5084fa5af8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &222324638
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,8 +647,9 @@ GameObject:
   - component: {fileID: 366732819}
   - component: {fileID: 366732818}
   - component: {fileID: 366732817}
+  - component: {fileID: 366732821}
   m_Layer: 5
-  m_Name: 'closetoinjured '
+  m_Name: 'CloseToInjured '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -749,6 +737,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!225 &366732821
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366732816}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &568942150
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,9 +761,10 @@ GameObject:
   - component: {fileID: 568942153}
   - component: {fileID: 568942152}
   - component: {fileID: 568942151}
+  - component: {fileID: 568942155}
   m_Layer: 0
   m_Name: L-Shaped Hallway UI Trigger
-  m_TagString: L_Hallway
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -846,6 +847,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &568942155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568942150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0716cd5be8ad7e344a46aa5084fa5af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UI: {fileID: 714291131}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,7 +967,7 @@ GameObject:
   - component: {fileID: 714291126}
   - component: {fileID: 714291125}
   - component: {fileID: 714291130}
-  - component: {fileID: 714291129}
+  - component: {fileID: 714291131}
   m_Layer: 5
   m_Name: L
   m_TagString: Untagged
@@ -1044,7 +1058,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &714291129
+--- !u!225 &714291130
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714291124}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
+--- !u!114 &714291131
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1057,18 +1083,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 714291130}
---- !u!225 &714291130
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 714291124}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &831411693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,8 +1096,8 @@ GameObject:
   - component: {fileID: 831411695}
   - component: {fileID: 831411694}
   m_Layer: 0
-  m_Name: closetoinjured UI Trigger
-  m_TagString: L_Hallway
+  m_Name: CloseToInjured UI Trigger
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

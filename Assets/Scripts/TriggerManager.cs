@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class TriggerManager : MonoBehaviour
 {
-    ObjectActivate UI;
+    public ObjectActivate UI;
 
     private void OnTriggerEnter(Collider col)
     {
-        switch(col.tag)
+        switch(col.gameObject.tag)
         {
-            case "L_Hallway":
+            case "Player":
                 Debug.Log("ㄱ자 복토 UI 활성");
                 UI.UION();
                 break;
