@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class HeadDirection : MonoBehaviour
 {
-    private RotateToMouse rotateToMouse; // 마우스 이동으로 카메라 회전
+    private MouseManager rotateToMouse; // 마우스 이동으로 카메라 회전
 
     private void Awake()
     {
-        rotateToMouse = GetComponent<RotateToMouse>();
+        rotateToMouse = GetComponent<MouseManager>();
 
     }
 

@@ -6,10 +6,16 @@ public class ObjectActivate : MonoBehaviour
 {
     public CanvasGroup canvasGroup;
 
-    public void UION()
+    public void UIInteraction()
     {
         canvasGroup.alpha = 1;
         canvasGroup.blocksRaycasts = true;
+    }
+
+    public void UIJustShow()
+    {
+        canvasGroup.alpha = 1;
+        canvasGroup.blocksRaycasts = false;
     }
 
     public void UIOFF()

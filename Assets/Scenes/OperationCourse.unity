@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 701937179}
   - component: {fileID: 701937176}
   m_Layer: 5
-  m_Name: 'videomove '
+  m_Name: Course Video
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 808708974}
   - component: {fileID: 808708973}
   m_Layer: 5
-  m_Name: x button
+  m_Name: X Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -339,11 +339,11 @@ RectTransform:
   m_Father: {fileID: 936964339}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 802, y: 416.24}
-  m_SizeDelta: {x: 165.9211, y: 247.5228}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -35, y: 0}
+  m_SizeDelta: {x: 67, y: 138}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &808708973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,7 +553,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690895962}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 27b34e451c7668343b820d771d54f3c0, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 6dd1355ff0efb544d8e04071f8534105, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
