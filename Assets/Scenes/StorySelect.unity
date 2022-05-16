@@ -338,7 +338,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 126477046}
         m_TargetAssemblyTypeName: ObjectActivate, Assembly-CSharp
-        m_MethodName: UION
+        m_MethodName: UIInteraction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -583,8 +583,9 @@ GameObject:
   - component: {fileID: 597922437}
   - component: {fileID: 597922436}
   - component: {fileID: 597922435}
+  - component: {fileID: 597922438}
   m_Layer: 5
-  m_Name: back button
+  m_Name: To Main Menu Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -607,8 +608,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -740, y: 429}
-  m_SizeDelta: {x: 246.9691, y: 68.2664}
+  m_AnchoredPosition: {x: -723.5, y: 398}
+  m_SizeDelta: {x: 273, y: 84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &597922435
 MonoBehaviour:
@@ -653,7 +654,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 597922436}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 597922438}
+        m_TargetAssemblyTypeName: BtnType, Assembly-CSharp
+        m_MethodName: OnBtnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &597922436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -692,6 +705,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 597922433}
   m_CullTransparentMesh: 1
+--- !u!114 &597922438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597922433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14463893434be374d859e1d8ef01376f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentType: 5
+  buttonScale: {fileID: 597922434}
 --- !u!1 &613492398
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,7 +820,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613492398}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1290,7 +1317,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 613492402}
         m_TargetAssemblyTypeName: ObjectActivate, Assembly-CSharp
-        m_MethodName: UION
+        m_MethodName: UIInteraction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1497,6 +1524,7 @@ GameObject:
   - component: {fileID: 1660520571}
   - component: {fileID: 1660520570}
   - component: {fileID: 1660520569}
+  - component: {fileID: 1660520572}
   m_Layer: 5
   m_Name: Chapter1 Operation Course Button
   m_TagString: Untagged
@@ -1567,7 +1595,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1660520570}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1660520572}
+        m_TargetAssemblyTypeName: BtnType, Assembly-CSharp
+        m_MethodName: OnBtnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1660520570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1606,6 +1646,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1660520567}
   m_CullTransparentMesh: 1
+--- !u!114 &1660520572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660520567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14463893434be374d859e1d8ef01376f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentType: 7
+  buttonScale: {fileID: 1660520568}
 --- !u!1 &2035127821
 GameObject:
   m_ObjectHideFlags: 0

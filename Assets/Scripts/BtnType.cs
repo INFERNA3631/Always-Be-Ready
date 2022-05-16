@@ -36,6 +36,18 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler
                 Debug.Log("스토리 모드 챕터1 작전 시작");
                 SceneManager.LoadScene("Operation");
                 break;
+            case BTNType.To_Main_Menu_Button:
+                Debug.Log("메인 메뉴로 이동");
+                SceneManager.LoadScene("MainMenu");
+                break;
+            case BTNType.To_Story_Selct_Button:
+                Debug.Log("스토리 선택 창으로 이동");
+                SceneManager.LoadScene("StorySelect");
+                break;
+            case BTNType.To_Chaper1_Operation_Course_Button:
+                Debug.Log("챕터 1 작전 흐름 창으로 이동");
+                SceneManager.LoadScene("OperationCourse");
+                break;
         }
     }
 

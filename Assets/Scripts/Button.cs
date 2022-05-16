@@ -9,7 +9,10 @@ public enum BTNType
     Train_Mode_Button,
     Story_Mode_Chapter1_Button,
     Story_Mode_Chapter2_Button,
-    Chapter1_Start_Operation_Button
+    Chapter1_Start_Operation_Button,
+    To_Main_Menu_Button,
+    To_Story_Selct_Button,
+    To_Chaper1_Operation_Course_Button
 }
 
 public class Button : MonoBehaviour
