@@ -5,6 +5,8 @@ using UnityEngine;
 public class TriggerManager : MonoBehaviour
 {
     public ObjectActivate[] UI;
+    public Camera cam;
+    public LayerMask mask;
 
     private void OnTriggerEnter(Collider col)
     {
@@ -38,6 +40,27 @@ public class TriggerManager : MonoBehaviour
         for (int i = 0; i < UI.Length; i++)
         {
             UI[i].UIOFF();
+        }
+    }
+
+    private void Update()
+    {
+
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+
+            Debug.DrawRay(transform.position, transform.forward * 100f, Color.blue, 0.3f);
+
+            if (Physics.Raycast(ray, out hit, 100f, mask))
+            {
+                Debug.Log(hit.collider.name);
+                UIInitialization();
+                UI[3].UIJustShow();
+                UI[5].UIJustShow();
+            }
         }
     }
 }
