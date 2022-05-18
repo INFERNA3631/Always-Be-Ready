@@ -4,9 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - L-Shaped Hallway
+  - Follow Team
   - Close To Injured
-  - Procedure Of Treatment
+  - Check Self Treatment
+  - Tourniquet
   layers:
   - Default
   - TransparentFX

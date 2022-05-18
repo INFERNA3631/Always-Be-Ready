@@ -2,31 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerManager : MonoBehaviour
+public class UITriggerManager : MonoBehaviour
 {
-    public ObjectActivate[] UI;
+    public UIObjectActivate[] UI;
     public Camera cam;
     public LayerMask mask;
+    private bool IsCheckSelfTreatmentPossible = false;
 
     private void OnTriggerEnter(Collider col)
     {
-        switch(col.gameObject.tag)
+        // 0 : Operation Description
+        // 1 : Follow Team
+        // 2 : Close To Injured
+        // 3 : Injured Condition
+        // 4 : Check Self Treatment
+        // 5 : Use Tourniquet
+        // 6 : Injured To Room
+
+        switch (col.gameObject.tag)
         {
-            case "L-Shaped Hallway":
-                Debug.Log("ㄱ자 복토 UI 활성");
+            case "Follow Team":
+                Debug.Log("Follow Team");
                 UIInitialization();
                 UI[0].UIJustShow();
                 UI[1].UIJustShow();
                 Destroy(col.gameObject);
                 break;
             case "Close To Injured":
-                Debug.Log("부상자에 접근하기");
+                Debug.Log("Close To Injured");
                 UIInitialization();
                 UI[2].UIJustShow();
                 Destroy(col.gameObject);
                 break;
-            case "Procedure Of Treatment":
-                Debug.Log("부상자 처치");
+            case "Check Self Treatment":
+                Debug.Log("Check Self Treatment");
                 UIInitialization();
                 UI[3].UIJustShow();
                 UI[4].UIJustShow();
@@ -43,10 +52,8 @@ public class TriggerManager : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void UseTourniquet()
     {
-
-
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
@@ -56,11 +63,17 @@ public class TriggerManager : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, 100f, mask))
             {
-                Debug.Log(hit.collider.name);
+                Debug.Log(".");
                 UIInitialization();
                 UI[3].UIJustShow();
-                UI[5].UIJustShow();
+                UI[6].UIJustShow();
+                IsCheckSelfTreatmentPossible = true;
             }
         }
+    }
+
+    private void Update()
+    {
+        UseTourniquet();
     }
 }
