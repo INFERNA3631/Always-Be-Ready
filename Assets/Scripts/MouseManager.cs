@@ -15,6 +15,16 @@ public class MouseManager : MonoBehaviour
     private float limitMinX = -80; // 카메라 위/아래 회전 범위(위)
     private float limitMaxX = 50; // 카메라 위/아래 회전 범위(아래)
 
+    public void SetXAxisSpeed(float speed)
+    {
+        rotCamXAxisSpeed = speed;
+    }
+    public void SetYAxisSpeed(float speed)
+    {
+        rotCamYAxisSpeed = speed;
+    }
+
+
     public void UpdateRotate(float mouseX, float mouseY)
     {
         eulerAngleY += mouseX * rotCamXAxisSpeed; // 마우스 좌/우 이동으로 카메라 y축 회전

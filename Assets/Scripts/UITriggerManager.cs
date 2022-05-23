@@ -7,7 +7,7 @@ public class UITriggerManager : MonoBehaviour
     public UIObjectActivate[] UI;
     public Camera cam;
     public LayerMask mask;
-    private bool IsCheckSelfTreatmentPossible = false;
+    public float RayLength;
 
     private void OnTriggerEnter(Collider col)
     {
@@ -59,16 +59,23 @@ public class UITriggerManager : MonoBehaviour
             RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
-            Debug.DrawRay(transform.position, transform.forward * 100f, Color.blue, 0.3f);
+            Debug.DrawRay(transform.position, transform.forward * RayLength, Color.blue, 0.3f);
 
-            if (Physics.Raycast(ray, out hit, 100f, mask))
+            if (Physics.Raycast(ray, out hit, RayLength, mask))
             {
                 Debug.Log(".");
                 UIInitialization();
                 UI[3].UIJustShow();
-                UI[6].UIJustShow();
-                IsCheckSelfTreatmentPossible = true;
+                UI[5].UIJustShow();
             }
+        }
+    }
+
+    public void Pause()
+    {
+        if (Input.GetKeyDown("p"))
+        {
+
         }
     }
 

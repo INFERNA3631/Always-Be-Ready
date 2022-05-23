@@ -13,15 +13,10 @@ public class InjuredTriggerManager : MonoBehaviour
         {
             case "Tourniquet":
                 Debug.Log("Tourniquet");
-                Debug.Log("¤¡¤¡");
                 Destroy(col.gameObject);
                 break;
             case "Close To Injured":
                 Debug.Log("Close To Injured");
-                Destroy(col.gameObject);
-                break;
-            case "Check Self Treatment":
-                Debug.Log("Check Self Treatment");
                 Destroy(col.gameObject);
                 break;
         }
