@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OperationCourse.unity
     guid: b1aa0577aac0f3a458adef6b337d6c1f
+  - enabled: 1
+    path: Assets/Scenes/Option.unity
+    guid: 1f027483879359946bfce92f4e9ea9ff
+  - enabled: 1
+    path: Assets/Scenes/Pause.unity
+    guid: 5550044e319c8f84c954f293f42c5c77
   m_configObjects: {}

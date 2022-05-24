@@ -32,7 +32,7 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler
             case BTNType.Story_Mode_Chapter2_Button:
                 Debug.Log("스토리 모드 챕터2 선택");
                 break ;
-            case BTNType.Chapter1_Start_Operation_Button:
+            case BTNType.To_Chapter1_Operation_Button:
                 Debug.Log("스토리 모드 챕터1 작전 시작");
                 SceneManager.LoadScene("Operation");
                 break;
@@ -47,6 +47,10 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler
             case BTNType.To_Chaper1_Operation_Course_Button:
                 Debug.Log("챕터 1 작전 흐름 창으로 이동");
                 SceneManager.LoadScene("OperationCourse");
+                break;
+            case BTNType.To_Pause_Button:
+                Debug.Log("일시 정지 창으로 이동");
+                SceneManager.LoadScene("Pause");
                 break;
         }
     }

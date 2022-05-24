@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class UITriggerManager : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class UITriggerManager : MonoBehaviour
     public Camera cam;
     public LayerMask mask;
     public float RayLength;
+    private bool IsPauseUI = false;
+    private Vector3 LastPlayerTransform;
 
     private void OnTriggerEnter(Collider col)
     {
@@ -75,12 +79,24 @@ public class UITriggerManager : MonoBehaviour
     {
         if (Input.GetKeyDown("p"))
         {
-
+            if (IsPauseUI)
+            {
+                Debug.Log("미션으로 이동");
+                SceneManager.LoadScene("Operation");
+                IsPauseUI = false;
+            }
+            else
+            {
+                Debug.Log("일시 정지 창으로 이동");
+                SceneManager.LoadScene("Pause");
+                IsPauseUI = true;
+            }
         }
     }
 
     private void Update()
     {
         UseTourniquet();
+        Pause();
     }
 }

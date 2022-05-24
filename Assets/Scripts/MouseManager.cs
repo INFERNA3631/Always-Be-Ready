@@ -24,7 +24,6 @@ public class MouseManager : MonoBehaviour
         rotCamYAxisSpeed = speed;
     }
 
-
     public void UpdateRotate(float mouseX, float mouseY)
     {
         eulerAngleY += mouseX * rotCamXAxisSpeed; // 마우스 좌/우 이동으로 카메라 y축 회전
