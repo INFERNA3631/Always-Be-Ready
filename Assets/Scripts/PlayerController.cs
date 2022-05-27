@@ -14,9 +14,6 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        Cursor.visible      = false;
-        Cursor.lockState    = CursorLockMode.Locked;
-
         rotateToMouse       = GetComponent<MouseManager>();
         movement            = GetComponent<MovementCharacterController>();
         audioSource         = GetComponent<AudioSource>();

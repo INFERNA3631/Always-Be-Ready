@@ -13,7 +13,10 @@ public enum BTNType
     To_Main_Menu_Button,
     To_Story_Selct_Button,
     To_Chaper1_Operation_Course_Button,
-    To_Pause_Button
+    To_Chaper1_Operation_Course_From_Pause_Button,
+    Chaper1_Operation_Course_Replay_Button,
+    To_Pause_Button,
+    Go_Back
 }
 
 public class Button : MonoBehaviour

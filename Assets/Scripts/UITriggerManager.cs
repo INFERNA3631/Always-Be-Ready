@@ -10,7 +10,6 @@ public class UITriggerManager : MonoBehaviour
     public Camera cam;
     public LayerMask mask;
     public float RayLength;
-    private bool IsPauseUI = false;
     private Vector3 LastPlayerTransform;
 
     private void OnTriggerEnter(Collider col)
@@ -48,6 +47,12 @@ public class UITriggerManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        UseTourniquet();
+        Pause();
+    }
+
     public void UIInitialization()
     {
         for (int i = 0; i < UI.Length; i++)
@@ -79,24 +84,20 @@ public class UITriggerManager : MonoBehaviour
     {
         if (Input.GetKeyDown("p"))
         {
-            if (IsPauseUI)
+            if (SceneManager.GetActiveScene().name == "Pause")
             {
                 Debug.Log("미션으로 이동");
                 SceneManager.LoadScene("Operation");
-                IsPauseUI = false;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
             }
-            else
+            else if(SceneManager.GetActiveScene().name == "Pause")
             {
                 Debug.Log("일시 정지 창으로 이동");
                 SceneManager.LoadScene("Pause");
-                IsPauseUI = true;
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
             }
         }
-    }
-
-    private void Update()
-    {
-        UseTourniquet();
-        Pause();
     }
 }

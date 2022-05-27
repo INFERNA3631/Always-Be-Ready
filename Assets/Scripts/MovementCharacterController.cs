@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 [RequireComponent(typeof(CharacterController))]
 public class MovementCharacterController : MonoBehaviour
@@ -21,9 +23,12 @@ public class MovementCharacterController : MonoBehaviour
 
     void Update()
     {
-        moveForce.y -= gravity * Time.deltaTime;
+        if (SceneManager.GetActiveScene().name == "Operation")
+        {
+            moveForce.y -= gravity * Time.deltaTime;
 
-        characterController.Move(moveForce * Time.deltaTime);
+            characterController.Move(moveForce * Time.deltaTime);
+        }
     }
 
     public void MoveTo(Vector3 direction)
