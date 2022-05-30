@@ -10,7 +10,7 @@ public class UITriggerManager : MonoBehaviour
     public Camera cam;
     public LayerMask mask;
     public float RayLength;
-    private Vector3 LastPlayerTransform;
+    private bool IsCheck = false;
 
     private void OnTriggerEnter(Collider col)
     {
@@ -49,7 +49,11 @@ public class UITriggerManager : MonoBehaviour
 
     private void Update()
     {
-        UseTourniquet();
+        if (!IsCheck)
+        {
+            UseTourniquet();
+        }
+        
         Pause();
     }
 
@@ -76,6 +80,7 @@ public class UITriggerManager : MonoBehaviour
                 UIInitialization();
                 UI[3].UIJustShow();
                 UI[5].UIJustShow();
+                IsCheck = true;
             }
         }
     }
