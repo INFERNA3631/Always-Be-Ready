@@ -15,8 +15,8 @@ public enum BTNType
     To_Chaper1_Operation_Course_Button,
     To_Chaper1_Operation_Course_From_Pause_Button,
     Chaper1_Operation_Course_Replay_Button,
-    To_Pause_Button,
-    Go_Back
+    To_Option_Button,
+    Pause_To_Back
 }
 
 public class Button : MonoBehaviour

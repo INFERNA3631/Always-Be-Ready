@@ -5,10 +5,8 @@ using UnityEngine;
 public class MouseManager : MonoBehaviour
 {
     // 카메라 x, y축 회전속도
-    [SerializeField]
-    private float rotCamXAxisSpeed = 5;
-    [SerializeField]
-    private float rotCamYAxisSpeed = 3;
+    public float rotCamXAxisSpeed = 5;
+    public float rotCamYAxisSpeed = 3;
 
     private float eulerAngleX;
     private float eulerAngleY;
@@ -18,10 +16,12 @@ public class MouseManager : MonoBehaviour
     public void SetXAxisSpeed(float speed)
     {
         rotCamXAxisSpeed = speed;
+        Debug.Log(speed);
     }
     public void SetYAxisSpeed(float speed)
     {
         rotCamYAxisSpeed = speed;
+        Debug.Log(speed);
     }
 
     public void UpdateRotate(float mouseX, float mouseY)

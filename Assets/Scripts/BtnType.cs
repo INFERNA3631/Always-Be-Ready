@@ -20,10 +20,6 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler
     {
         switch (currentType)
         {
-            case BTNType.Go_Back:
-                Debug.Log("뒤로가기");
-                SceneManager.LoadScene(preScene);
-                break;
             case BTNType.Story_Mode_Button:
                 Debug.Log("스토리 모드");
                 SceneManager.LoadScene("StorySelect");
@@ -40,9 +36,9 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler
                 Debug.Log("스토리 모드 챕터2 선택");
                 break ;
             case BTNType.To_Chapter1_Operation_Button:
-                Debug.Log("스토리 모드 챕터1 작전 시작");
+                Debug.Log("스토리 모드 챕터1 작전으로");
                 SceneManager.LoadScene("Operation");
-                DisableCursor();
+                EnableCursor();
                 break;
             case BTNType.To_Main_Menu_Button:
                 Debug.Log("메인 메뉴로 이동");
@@ -69,9 +65,9 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 EnableCursor();
                 break;
-            case BTNType.To_Pause_Button:
-                Debug.Log("일시 정지 창으로 이동");
-                SceneManager.LoadScene("Pause");
+            case BTNType.To_Option_Button:
+                Debug.Log("옵션 창으로 이동");
+                SceneManager.LoadScene("Option");
                 EnableCursor();
                 break;
         }
@@ -97,10 +93,5 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-    }
-
-    public void PreScene()
-    {
-        preScene = SceneManager.GetActiveScene().name;
     }
 }

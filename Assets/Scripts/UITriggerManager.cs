@@ -7,10 +7,12 @@ using UnityEngine.SceneManagement;
 public class UITriggerManager : MonoBehaviour
 {
     public UIObjectActivate[] UI;
+    public CanvasGroup Pause;
     public Camera cam;
     public LayerMask mask;
     public float RayLength;
     private bool IsCheck = false;
+    private int[] TemporaryStorage;
 
     private void OnTriggerEnter(Collider col)
     {
@@ -49,12 +51,15 @@ public class UITriggerManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown("p"))
+        {
+            ActivePauseUI();
+        }
+
         if (!IsCheck)
         {
             UseTourniquet();
         }
-        
-        Pause();
     }
 
     public void UIInitialization()
@@ -62,6 +67,51 @@ public class UITriggerManager : MonoBehaviour
         for (int i = 0; i < UI.Length; i++)
         {
             UI[i].UIOFF();
+        }
+    }
+
+    public void UITemporaryStorage()
+    {
+        TemporaryStorage = new int[UI.Length];
+
+        for (int i = 0; i < UI.Length; i++)
+        {
+            if (UI[i].canvasGroup.alpha == 1)
+            {
+                if (UI[i].canvasGroup.blocksRaycasts)
+                {
+                    TemporaryStorage[i] = 0;
+                }
+                else
+                {
+                    TemporaryStorage[i] = 1;
+                }
+            }
+            else
+            {
+                TemporaryStorage[i] = 2;
+            }
+        }
+
+        UIInitialization();
+    }
+
+    public void UIReapply()
+    {
+        for (int i = 0; i < UI.Length; i++)
+        {
+            switch (TemporaryStorage[i])
+            {
+                case 0:
+                    UI[i].UIInteraction();
+                    break;
+                case 1:
+                    UI[i].UIJustShow();
+                    break;
+                case 2:
+                    UI[i].UIOFF();
+                    break;
+            }
         }
     }
 
@@ -85,21 +135,25 @@ public class UITriggerManager : MonoBehaviour
         }
     }
 
-    public void Pause()
+    public void ActivePauseUI()
     {
-        if (Input.GetKeyDown("p"))
+        if (SceneManager.GetActiveScene().name == "Operation")
         {
-            if (SceneManager.GetActiveScene().name == "Pause")
+            if (Pause.alpha == 1)
             {
                 Debug.Log("미션으로 이동");
-                SceneManager.LoadScene("Operation");
+                UIReapply();
+                Pause.alpha = 0;
+                Pause.blocksRaycasts = false;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
             }
-            else if(SceneManager.GetActiveScene().name == "Pause")
+            else if (Pause.alpha == 0)
             {
                 Debug.Log("일시 정지 창으로 이동");
-                SceneManager.LoadScene("Pause");
+                UITemporaryStorage();
+                Pause.alpha = 1;
+                Pause.blocksRaycasts = true;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
             }

@@ -484,6 +484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 305662925}
   - component: {fileID: 305662926}
+  - component: {fileID: 305662927}
   m_Layer: 5
   m_Name: Option_Sensitive Hor
   m_TagString: Untagged
@@ -558,14 +559,14 @@ MonoBehaviour:
   m_FillRect: {fileID: 1905883410}
   m_HandleRect: {fileID: 1611502893}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: 1
+  m_MaxValue: 9
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1637099084}
+      - m_Target: {fileID: 305662927}
         m_TargetAssemblyTypeName: MouseManager, Assembly-CSharp
         m_MethodName: SetXAxisSpeed
         m_Mode: 0
@@ -577,6 +578,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &305662927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305662924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d86d37ad575ed7429a9aa6d8300ba9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotCamXAxisSpeed: 5
+  rotCamYAxisSpeed: 3
 --- !u!1 &319780334
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,6 +686,7 @@ GameObject:
   m_Component:
   - component: {fileID: 374040597}
   - component: {fileID: 374040598}
+  - component: {fileID: 374040599}
   m_Layer: 5
   m_Name: Option_Sensitive Ver
   m_TagString: Untagged
@@ -745,13 +761,39 @@ MonoBehaviour:
   m_FillRect: {fileID: 1070153535}
   m_HandleRect: {fileID: 2042834871}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: 1
+  m_MaxValue: 5
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 3
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 374040599}
+        m_TargetAssemblyTypeName: MouseManager, Assembly-CSharp
+        m_MethodName: SetYAxisSpeed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &374040599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374040596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d86d37ad575ed7429a9aa6d8300ba9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotCamXAxisSpeed: 5
+  rotCamYAxisSpeed: 3
 --- !u!1 &376850923
 GameObject:
   m_ObjectHideFlags: 0
@@ -2013,7 +2055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14463893434be374d859e1d8ef01376f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentType: 9
+  currentType: 10
   buttonScale: {fileID: 1359501269}
 --- !u!1 &1376288204
 GameObject:
@@ -2219,52 +2261,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611502892}
   m_CullTransparentMesh: 1
---- !u!1 &1637099083
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1637099085}
-  - component: {fileID: 1637099084}
-  m_Layer: 0
-  m_Name: MouseManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1637099084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1637099083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d86d37ad575ed7429a9aa6d8300ba9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotCamXAxisSpeed: 5
-  rotCamYAxisSpeed: 3
---- !u!4 &1637099085
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1637099083}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1258.2751, y: 806.046, z: -1.5573556}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1643923280
 GameObject:
   m_ObjectHideFlags: 0
@@ -2551,7 +2547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14463893434be374d859e1d8ef01376f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentType: 8
+  currentType: 10
   buttonScale: {fileID: 1768587468}
 --- !u!1 &1903846140
 GameObject:

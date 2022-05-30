@@ -22,6 +22,8 @@ public class UIObjectActivate : MonoBehaviour
     {
         canvasGroup.alpha = 0;
         canvasGroup.blocksRaycasts = false;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Quit()
