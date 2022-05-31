@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +13,9 @@ public class PlayerController : MonoBehaviour
     private MouseManager                    rotateToMouse; // 마우스 이동으로 카메라 회전
     private MovementCharacterController     movement; // 키보드 입력으로 플레이어 이동
     private AudioSource                     audioSource; // 사운드 재생 제어
+
+    public CanvasGroup Option;
+    public CanvasGroup Pause;
 
     void Awake()
     {
@@ -24,8 +29,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateRotate();
-        UpdateMove();
+        if (SceneManager.GetActiveScene().name == "Operation")
+        {
+            if (Option.alpha == 0 && Pause.alpha == 0)
+            {
+                UpdateRotate();
+                UpdateMove();
+            }
+        }
     }
 
     private void UpdateRotate()

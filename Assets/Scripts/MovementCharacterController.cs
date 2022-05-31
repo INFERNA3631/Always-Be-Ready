@@ -14,6 +14,9 @@ public class MovementCharacterController : MonoBehaviour
     [SerializeField]
     private float gravity;
 
+    public CanvasGroup Option;
+    public CanvasGroup Pause;
+
     private CharacterController characterController; // 플레이어 이동 제어를 위한 컴포넌트
 
     void Awake()
@@ -25,11 +28,15 @@ public class MovementCharacterController : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Operation")
         {
-            moveForce.y -= gravity * Time.deltaTime;
+            if (Option.alpha == 0 && Pause.alpha == 0)
+            {
+                moveForce.y -= gravity * Time.deltaTime;
 
-            characterController.Move(moveForce * Time.deltaTime);
+                characterController.Move(moveForce * Time.deltaTime);
+            }
         }
     }
+
 
     public void MoveTo(Vector3 direction)
     {
