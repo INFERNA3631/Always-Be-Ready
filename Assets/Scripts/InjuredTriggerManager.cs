@@ -12,8 +12,9 @@ public class InjuredTriggerManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        // 0 : Operation Description
-        // 1 : Follow Team
+        // 0 : Use Tourniquet
+        // 1 : Injured To Room
+        // 2 : Double Check Tourniquet
 
         switch (col.gameObject.tag)
         {
@@ -24,9 +25,12 @@ public class InjuredTriggerManager : MonoBehaviour
                 Destroy(col.gameObject);
                 CanDrag = true;
                 break;
-            case "Close To Injured":
-                Debug.Log("Close To Injured");
+            case "Injured Place":
+                Debug.Log("Injured Place");
+                UIInitialization();
+                UI[2].UIJustShow();
                 Destroy(col.gameObject);
+                CanDrag = false;
                 break;
         }
     }

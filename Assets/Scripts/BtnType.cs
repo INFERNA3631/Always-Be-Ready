@@ -65,11 +65,6 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 EnableCursor();
                 break;
-            case BTNType.To_Option_Button:
-                Debug.Log("옵션 창으로 이동");
-                SceneManager.LoadScene("Option");
-                EnableCursor();
-                break;
         }
     }
 

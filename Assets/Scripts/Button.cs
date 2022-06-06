@@ -15,7 +15,7 @@ public enum BTNType
     To_Chaper1_Operation_Course_Button,
     To_Chaper1_Operation_Course_From_Pause_Button,
     Chaper1_Operation_Course_Replay_Button,
-    To_Option_Button,
+    To_Pause_Button,
     Pause_To_Back
 }
 

@@ -8,6 +8,7 @@ TagManager:
   - Close To Injured
   - Check Self Treatment
   - Tourniquet
+  - Injured Place
   layers:
   - Default
   - TransparentFX

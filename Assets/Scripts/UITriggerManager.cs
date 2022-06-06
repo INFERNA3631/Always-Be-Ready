@@ -8,6 +8,7 @@ public class UITriggerManager : MonoBehaviour
 {
     public UIObjectActivate[] UI;
     public CanvasGroup Pause;
+    public CanvasGroup Option;
     public Camera cam;
     public LayerMask mask;
     public float RayLength;
@@ -150,12 +151,43 @@ public class UITriggerManager : MonoBehaviour
             }
             else if (Pause.alpha == 0)
             {
-                Debug.Log("일시 정지 창으로 이동");
-                UITemporaryStorage();
-                Pause.alpha = 1;
-                Pause.blocksRaycasts = true;
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
+                if (Option.alpha == 0)
+                {
+                    Debug.Log("일시 정지 창으로 이동");
+                    UITemporaryStorage();
+                    Pause.alpha = 1;
+                    Pause.blocksRaycasts = true;
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
+                }
+            }
+        }
+    }
+
+    public void ActiveTourniquet()
+    {
+        if (SceneManager.GetActiveScene().name == "Operation")
+        {
+            if (Pause.alpha == 1)
+            {
+                Debug.Log("미션으로 이동");
+                UIReapply();
+                Pause.alpha = 0;
+                Pause.blocksRaycasts = false;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+            else if (Pause.alpha == 0)
+            {
+                if (Option.alpha == 0)
+                {
+                    Debug.Log("일시 정지 창으로 이동");
+                    UITemporaryStorage();
+                    Pause.alpha = 1;
+                    Pause.blocksRaycasts = true;
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
+                }
             }
         }
     }
