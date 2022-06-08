@@ -15,6 +15,9 @@ public class UITriggerManager : MonoBehaviour
     private bool IsCheck = false;
     private int[] TemporaryStorage;
 
+    [SerializeField]
+    private GameObject Tourniquet;
+
     private void OnTriggerEnter(Collider col)
     {
         // 0 : Operation Description
@@ -64,7 +67,7 @@ public class UITriggerManager : MonoBehaviour
 
         if (Input.GetKeyDown("t"))
         {
-            ActiveTourniquet();
+            Instantiate(Tourniquet, new Vector3(transform.position.x, 0f, transform.position.z), Quaternion.identity);
         }
     }
 

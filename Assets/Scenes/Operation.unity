@@ -1010,6 +1010,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   RayLength: 1.5
+  Tourniquet: {fileID: 77234896}
 --- !u!1 &222324638
 GameObject:
   m_ObjectHideFlags: 0
