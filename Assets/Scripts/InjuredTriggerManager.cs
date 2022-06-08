@@ -6,6 +6,7 @@ public class InjuredTriggerManager : MonoBehaviour
 {
     public UIObjectActivate[] UI;
     private bool CanDrag = false;
+    private bool CanTourniquet = false;
 
     public Camera cam;
     public float FromCam;
@@ -31,6 +32,7 @@ public class InjuredTriggerManager : MonoBehaviour
                 UI[2].UIJustShow();
                 Destroy(col.gameObject);
                 CanDrag = false;
+                CanTourniquet = true;
                 break;
         }
     }

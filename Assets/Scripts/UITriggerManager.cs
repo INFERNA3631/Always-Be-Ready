@@ -61,6 +61,11 @@ public class UITriggerManager : MonoBehaviour
         {
             UseTourniquet();
         }
+
+        if (Input.GetKeyDown("t"))
+        {
+            ActiveTourniquet();
+        }
     }
 
     public void UIInitialization()
@@ -168,7 +173,7 @@ public class UITriggerManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Operation")
         {
-            if (Pause.alpha == 1)
+            if (Pause.alpha == 0 || Option.alpha == 0)
             {
                 Debug.Log("미션으로 이동");
                 UIReapply();
@@ -176,18 +181,6 @@ public class UITriggerManager : MonoBehaviour
                 Pause.blocksRaycasts = false;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
-            }
-            else if (Pause.alpha == 0)
-            {
-                if (Option.alpha == 0)
-                {
-                    Debug.Log("일시 정지 창으로 이동");
-                    UITemporaryStorage();
-                    Pause.alpha = 1;
-                    Pause.blocksRaycasts = true;
-                    Cursor.visible = true;
-                    Cursor.lockState = CursorLockMode.None;
-                }
             }
         }
     }
