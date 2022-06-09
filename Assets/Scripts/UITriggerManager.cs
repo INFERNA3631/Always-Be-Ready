@@ -10,9 +10,9 @@ public class UITriggerManager : MonoBehaviour
     public CanvasGroup Pause;
     public CanvasGroup Option;
     public Camera cam;
-    public LayerMask mask;
-    public float RayLength;
-    private bool IsCheck = false;
+
+
+
     private int[] TemporaryStorage;
 
     [SerializeField]
@@ -53,6 +53,8 @@ public class UITriggerManager : MonoBehaviour
         }
     }
 
+
+
     private void Update()
     {
         if (Input.GetKeyDown("p"))
@@ -60,14 +62,15 @@ public class UITriggerManager : MonoBehaviour
             ActivePauseUI();
         }
 
-        if (!IsCheck)
-        {
-            UseTourniquet();
-        }
+
 
         if (Input.GetKeyDown("t"))
         {
-            Instantiate(Tourniquet, new Vector3(transform.position.x, 0f, transform.position.z), Quaternion.identity);
+            Debug.Log("지혈대 생성");
+            GameObject CloneTourniquet = Instantiate(Tourniquet, new Vector3(transform.position.x, 0f, transform.position.z), Quaternion.identity);
+            CloneTourniquet.transform.parent = GameObject.Find("Play").transform;
+
+            Destroy(CloneTourniquet, 60f);
         }
     }
 
@@ -124,26 +127,6 @@ public class UITriggerManager : MonoBehaviour
         }
     }
 
-    public void UseTourniquet()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit hit;
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-
-            Debug.DrawRay(transform.position, transform.forward * RayLength, Color.blue, 0.3f);
-
-            if (Physics.Raycast(ray, out hit, RayLength, mask))
-            {
-                Debug.Log(".");
-                UIInitialization();
-                UI[3].UIJustShow();
-                UI[5].UIJustShow();
-                IsCheck = true;
-            }
-        }
-    }
-
     public void ActivePauseUI()
     {
         if (SceneManager.GetActiveScene().name == "Operation")
@@ -168,22 +151,6 @@ public class UITriggerManager : MonoBehaviour
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
                 }
-            }
-        }
-    }
-
-    public void ActiveTourniquet()
-    {
-        if (SceneManager.GetActiveScene().name == "Operation")
-        {
-            if (Pause.alpha == 0 || Option.alpha == 0)
-            {
-                Debug.Log("미션으로 이동");
-                UIReapply();
-                Pause.alpha = 0;
-                Pause.blocksRaycasts = false;
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
             }
         }
     }
