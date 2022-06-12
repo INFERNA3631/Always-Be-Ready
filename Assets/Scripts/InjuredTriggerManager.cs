@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InjuredTriggerManager : MonoBehaviour
 {
     public UIObjectActivate[] UI;
     private bool CanDrag = false;
     private bool CanTourniquet = false;
+    private bool ReTourniquet = false;
     private bool IsCheck = false;
+    private bool ActiveTimer = false;
     public float RayLength;
     public LayerMask mask;
+    private float Timer = 10;
+    public Text text_Timer;
 
     public Camera cam;
     public float FromCam;
@@ -19,6 +24,10 @@ public class InjuredTriggerManager : MonoBehaviour
         // 0 : Use Tourniquet
         // 1 : Injured To Room
         // 2 : Double Check Tourniquet
+        // 3 : Injured Condition
+        // 4 : Check Self Treatment
+        // 5 : Use Tourniquet
+        // 6 : Injured To Room
 
         if (CanTourniquet)
         {
@@ -42,8 +51,23 @@ public class InjuredTriggerManager : MonoBehaviour
                 UI[2].UIJustShow();
                 Destroy(col.gameObject);
                 CanDrag = false;
-                CanTourniquet = true;
+                ReTourniquet = true;
                 break;
+        }
+
+        if (ReTourniquet)
+        {
+            switch (col.gameObject.tag)
+            {
+                case "Tourniquet":
+                    Debug.Log("Tourniquet");
+                    UIInitialization();
+                    UI[6].UIJustShow();
+                    Destroy(col.gameObject);
+                    CanDrag = false;
+                    ActiveTimer = true;
+                    break;
+            }
         }
     }
 
@@ -52,6 +76,11 @@ public class InjuredTriggerManager : MonoBehaviour
         if (!IsCheck)
         {
             UseTourniquet();
+        }
+
+        if (ActiveTimer)
+        {
+            PressTourniquetTimer();
         }
     }
 
@@ -84,6 +113,39 @@ public class InjuredTriggerManager : MonoBehaviour
                 CanTourniquet = true;
                 IsCheck = true;
             }
+        }
+    }
+
+    public void PressTourniquetTimer()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            RaycastHit hit;
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+
+            Debug.DrawRay(transform.position, transform.forward * RayLength, Color.blue, 0.3f);
+
+            if (Physics.Raycast(ray, out hit, RayLength, mask))
+            {
+                Debug.Log("Press Tourniquet");
+                UI[7].UIJustShow();
+                UI[8].UIJustShow();
+                Timer -= Time.deltaTime;
+                text_Timer.text = $"{Timer:N1}";
+
+                if (Timer < 0)
+                {
+                    UIInitialization();
+                    UI[9].UIInteraction();
+                    ActiveTimer = false;
+                }
+            }
+        }
+        else
+        {
+            UI[7].UIOFF();
+            UI[8].UIOFF();
+            Timer = 10;
         }
     }
 
