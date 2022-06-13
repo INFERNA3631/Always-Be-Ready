@@ -9,6 +9,10 @@ TagManager:
   - Check Self Treatment
   - Tourniquet
   - Injured Place
+  - 1 shape UI
+  - + shape UI
+  - T Shape Hall
+  - L Shape UI
   layers:
   - Default
   - TransparentFX

@@ -50,6 +50,30 @@ public class UITriggerManager : MonoBehaviour
                 UI[4].UIJustShow();
                 Destroy(col.gameObject);
                 break;
+            case "1 shape UI":
+                Debug.Log("1 shape UI");
+                UIInitialization();
+                UI[7].UIJustShow();
+                Destroy(col.gameObject);
+                break;
+            case "T shape UI":
+                Debug.Log("+ shape UI");
+                UIInitialization();
+                UI[8].UIJustShow();
+                Destroy(col.gameObject);
+                break;
+            case "+ shape UI":
+                Debug.Log("+ shape UI");
+                UIInitialization();
+                UI[9].UIJustShow();
+                Destroy(col.gameObject);
+                break;
+            case "L Shape UI":
+                Debug.Log("+ shape UI");
+                UIInitialization();
+                UI[10].UIJustShow();
+                Destroy(col.gameObject);
+                break;
         }
     }
 
